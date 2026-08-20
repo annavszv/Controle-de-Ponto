@@ -1,0 +1,204 @@
+/* =========================
+   PALETA DE CORES
+========================= */
+
+:root {
+    --roxo: #6C63FF;
+    --roxo-escuro: #5148D9;
+    --lilas: #EDEBFF;
+    --branco: #FFFFFF;
+    --fundo: #F7F6FF;
+    --texto: #29254A;
+    --cinza: #6F6A8A;
+}
+
+
+/* =========================
+   CONFIGURAÇÕES GERAIS
+========================= */
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: var(--fundo);
+    color: var(--texto);
+    font-family: Arial, sans-serif;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+    background-color: var(--roxo);
+    color: var(--branco);
+    text-align: center;
+    padding: 30px;
+}
+
+
+
+
+
+
+/* =========================
+   ÁREA PRINCIPAL
+========================= */
+
+#grande {
+    width: 90%;
+    margin: 30px auto;
+    display: flex;
+    gap: 20px;
+}
+
+
+/* =========================
+   CARDS
+========================= */
+
+#ponto,
+#cam,
+#mem {
+    background-color: var(--branco);
+
+    border: 1px solid var(--lilas);
+    border-radius: 10px;
+
+    padding: 20px;
+
+    flex: 1;
+}
+
+
+/* =========================
+   TÍTULOS
+========================= */
+
+.titu {
+    color: var(--roxo-escuro);
+    margin-bottom: 15px;
+}
+
+
+/* =========================
+   DATA E HORA
+========================= */
+
+#data,
+#dia,
+#hora,
+#saudação {
+    background-color: var(--lilas);
+
+    padding: 10px;
+    margin: 8px 0;
+
+    border-radius: 5px;
+}
+
+
+/* =========================
+   BOTÕES
+========================= */
+
+button {
+    background-color: var(--roxo);
+    color: var(--branco);
+
+    border: none;
+    border-radius: 5px;
+
+    padding: 10px 15px;
+    margin: 5px 0;
+
+    
+}
+
+button:hover {
+    background-color: var(--roxo-escuro);
+}
+
+
+/* =========================
+   CÂMERA
+========================= */
+
+#camera {
+    display: block;
+
+    margin-bottom: 10px;
+
+    border-radius: 5px;
+}
+
+
+/* =========================
+   FOTO
+========================= */
+
+#foto {
+    display: block;
+
+    margin: 10px 0;
+
+    border: 2px solid var(--roxo);
+    border-radius: 5px;
+}
+
+
+/* =========================
+   FORMULÁRIO
+========================= */
+
+#mem label {
+    display: block;
+
+    margin-top: 10px;
+    margin-bottom: 5px;
+
+    color: var(--cinza);
+}
+
+input,
+select {
+    width: 100%;
+
+    padding: 10px;
+
+    border: 1px solid var(--lilas);
+    border-radius: 5px;
+
+    background-color: var(--fundo);
+}
+
+
+/* =========================
+   ÚLTIMO REGISTRO
+========================= */
+
+#ultimoNome,
+#ultimoTipo,
+#ultimaData,
+#ultimaHora {
+    color: var(--cinza);
+    margin: 5px 0;
+}
+
+
+/* =========================
+   ÚLTIMA FOTO
+========================= */
+
+#ultimaFoto {
+    display: block;
+
+    margin-top: 10px;
+
+    border: 2px solid var(--roxo);
+    border-radius: 5px;
+}
+
+

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle de ponto</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  
+   <header><h1><i>Controle de Ponto</i></h1>
+    <h3><i>“Seu tempo, sua rotina, seu controle.”</i></h3>
+ </header> 
+
+  <div  id=grande>
+
+ <div id="ponto">
+    <h2 class="titu"><i>Atuzalize o seu ponto</i></h2>
+    <h3 id="data">Data</h3> 
+    <h3 id="dia">Dia</h3>
+    <h3 id="hora">Hora</h3>
+    <h3 id="saudação"></h3>
+    <button id="botao" onclick="atualizar()">Atualizar</button>
+</div>
+    
+<div id="cam">
+    <h2 class="titu"><i>Camera</i></h2>
+    <video id="camera" width="200" autoplay></video>
+    <button class="botao" onclick="abrirCamera()">Abrir camera</button>
+    <button class="botao" onclick="fecharCamera()">Fechar camera</button>
+        <h2 class="titu">fotografia</h2>
+    <canvas id="foto" width="150" height="200"></canvas>
+    <button  class="botao" onclick="capturarFoto()">registra a fotografia</button>
+
+    
+</div>
+    
+<div id="mem">
+    <h2 class="titu"><i>Armazenar na Mémoria</i></h2>
+    <label for="nome">Nome do Funcionário</label>
+    <input type="text" id="nome" placeholder="Digite seu nome ">
+    <label for="tipoRegistro">Tipo de Registro</label>
+    <br>
+    <select id="tipoRegistro">
+        <option value="Entrada">Entrada</option>
+         <option value="Saída">Saída</option>
+    </select><br><br>
+    <button  class="botao" onclick="registrarPonto()">Registrar no LocalStorage</button>
+    <p id="mensagemRegistro"></p>
+
+    <h2 class="titu"><i>Último Registro</i></h2>
+    <p id="ultimoNome"></p>
+    <p id="ultimoTipo"></p>
+    <p id="ultimaData"></p>
+    <p id="ultimaHora"></p>
+    <img  id="ultimaFoto" width="300" height="400">
+</div>
+    
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+function atualizar(){
+    const horario = new Date();
+    document.getElementById("data").innerHTML = "Data: " + horario.toLocaleDateString("pt-BR");
+    document.getElementById("data").innerHTML = "Data: " + horario.toLocaleDateString("pt-BR",{
+        day: "numeric",
+        month: "long",
+        year:"numeric"}
+    );
+    document.getElementById("hora").innerHTML = "Hora: " + horario.toLocaleTimeString("pt-BR");
+    const diaSemana = horario.toLocaleDateString("pt-BR",{
+        weekday: "long"
+    });
+    const diaFormatado = diaSemana.charAt(0).toUpperCase()  + diaSemana.slice(1);
+    document.getElementById("dia").innerHTML = diaFormatado;
+    const hora = horario.getHours()
+
+    if( hora < 12){
+        document.getElementById("saudação").innerHTML = "bom dia!"
+    }
+         else if( hora < 18){
+        document.getElementById("saudação").innerHTML = "boa tarde!"
+    }
+     else if( hora > 18){
+        document.getElementById("saudação").innerHTML = "boa noite!"
+    }
+}
+let streamCamera;
+async function abrirCamera(){
+    try{
+        streamCamera  = await navigator.mediaDevices.getUserMedia({
+         video: true});
+         document.getElementById("camera").srcObject = streamCamera;
+    }catch(erro){
+        alert("autorize sua camera.");
+        console.log(erro)
+    }
+}
+//fechar camera
+function fecharCamera(){
+    if(streamCamera){
+        streamCamera.getTracks().forEach(track => {
+            track.stop();
+        });
+    }
+};
+//captura da foto
+function capturarFoto(){
+    const imagem = document.getElementById("camera");
+    const canvas = document.getElementById("foto");
+    const contexto = canvas.getContext("2d");
+    contexto.drawImage(
+        imagem,
+        0,
+        0,
+        canvas.width,
+        canvas.height,
+    );
+}
+
+//registro no ponto 
+function registrarPonto(){
+    const nome = document.getElementById("nome").value;
+    const tipo = document.getElementById("tipoRegistro").value;
+    if(nome === ""){
+        alert("Digite o seu nome.");
+        return;
+    }
+
+    capturarFoto();
+const agora = new Date();
+const dataRegistro = agora.toLocaleDateString("pt-BR");
+const horaRegistro = agora.toLocaleTimeString("pt-BR");
+//transformar em texto
+const canvas = document.getElementById("foto");
+const foto = canvas.toDataURL("image/png");
+const registro = {
+    nome: nome,
+    tipo: tipo,
+    data: dataRegistro,
+    hora: horaRegistro,
+    foto: foto
+};
+const registroTexto = JSON.stringify(registro);
+localStorage.setItem(
+    "ultimoRegistro",
+    registroTexto
+);
+document.getElementById("mensagemRegistro").innerHTML = tipo + "registrada com sucesso!";
+mostrarRegistro(registro);
+
+function mostrarRegistro(registro){
+    document.getElementById("ultimoNome").innerHTML = "Colaborador(a):" + registro.nome;
+    document.getElementById("ultimoTipo").innerHTML = "Tipo:" + registro.tipo;
+    document.getElementById("ultimaData").innerHTML = "Data:" + registro.data;
+    document.getElementById("ultimaHora").innerHTML = "Hora:" + registro.hora;
+    document.getElementById("ultimaFoto").src = registro.foto;
+}
+}
